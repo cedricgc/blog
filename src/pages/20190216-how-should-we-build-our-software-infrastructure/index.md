@@ -3,7 +3,7 @@ title: How Should We Build Our Software Infrastructure?
 date: '2019-02-16T21:42:11Z'
 ---
 
-> This piece was published for fellow Site Reliability Engineers at my employer
+> This piece was published for fellow Site Reliability Engineers at my workplace
 > and has been lightly edited for a more general audience. I wrote this article
 > to advocate changing how we automate and provide infrastructure
 > to our organization. I reference Google Cloud as our cloud vendor,
