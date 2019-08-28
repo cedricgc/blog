@@ -17,8 +17,7 @@ class Bio extends React.Component {
         }}
       >
         <p>
-          Written by <strong>Cedric Charly</strong> who lives and works in
-          Austin.
+          Written by <strong>Cedric Charly</strong> who lives and works in the Bay.
           <div>
             <a href="https://github.com/cedricgc"> GitHub</a>
           </div>
