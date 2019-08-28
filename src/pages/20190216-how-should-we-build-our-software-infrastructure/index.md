@@ -1,5 +1,5 @@
 ---
-title: How Should We Build Our Software Infrastructure?
+title: Services, Not Scripts
 date: '2019-02-16T21:42:11Z'
 ---
 
@@ -174,7 +174,7 @@ Thinking about accessibility leads to orienting questions:
 
 - Are deployed databases reliable and client teams are confident they work?
 - Are the services we build simple to access and use by teams?
-  - As simple Google APIs integration with IAM?
+  - As simple as Google APIs integration with IAM?
   - Do we have the tooling to make working with our APIs as ergonomic as GCP APIs?
     - eg. Dashboards, Infrastructure as Code, scripts, etc.
 - Is it as simple to delete resources no longer needed as it is to create them?
