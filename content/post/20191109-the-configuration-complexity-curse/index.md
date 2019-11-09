@@ -1,5 +1,6 @@
 ---
 title: The Configuration Complexity Curse
+date: '2019-11-09T22:23:50Z'
 tags:
   - configuration
   - devops
@@ -8,10 +9,7 @@ tags:
   - jsonnet
   - dhall
   - starlark
-created: 2019-10-17T02:37:21Z
 ---
-
-# The Configuration Complexity Curse
 
 > Don't be a YAML Engineer
 
