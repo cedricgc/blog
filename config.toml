@@ -1,3 +1,5 @@
 baseURL = "http://blog.cedriccharly.com/"
 languageCode = "en-us"
 title = "Cedric Charly's Blog"
+
+theme = "hugo-theme-yuki"
