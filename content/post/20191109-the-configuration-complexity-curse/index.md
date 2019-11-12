@@ -13,7 +13,7 @@ tags:
 
 > Don't be a YAML Engineer
 
-Spare a thought for average software engineering new grad having to enter the industry nowadays. You thought you were ready after studying your theory and the weekend side projects. Now, you get hit with a wave of new tools and concepts out of nowhere. Microservices? REST? Cloud Computing? RPC (What's an IDL)? Docker (What's a container)? Kubernetes? Continuous Integration? Continuous Deployment? Even for veterans, like a frog in slowly boiling water, you look up day and realize things have become **complicated**.
+Spare a thought for average software engineering new grad having to enter the industry nowadays. You thought you were ready after studying your theory and the weekend side projects. Now, you get hit with a wave of new tools and concepts out of nowhere. Microservices? REST? Cloud Computing? RPC (What's an IDL)? Docker (What's a container)? Kubernetes? Continuous Integration? Continuous Deployment? Even for veterans, like a frog in slowly boiling water, you look up one day and realize things have become **complicated**.
 
 How did this happen? Each of these things looks useful in isolation, but now you have to figure out how to use it best for yourself as well with these other tools in concert. First a tool must be configured, usually in YAML (so much YAML). Now this tool needs to be integrated to work with everything else. If you are lucky, you may have an internal platform team to package and abstract the complexity for you. Otherwise, you are going end up rube goldbergian system that wraps all these tools so you can coordinate configuration between everything just to maintain sanity.
 
