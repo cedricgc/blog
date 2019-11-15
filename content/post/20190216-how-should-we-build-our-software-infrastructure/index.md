@@ -1,6 +1,10 @@
 ---
 title: Services, Not Scripts
 date: '2019-02-16T21:42:11Z'
+tags:
+  - Cloud
+  - SRE
+  - DevOps
 ---
 
 > This piece was published for fellow Site Reliability Engineers at my workplace

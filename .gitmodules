@@ -1,0 +1,3 @@
+[submodule "themes/yuki"]
+	path = themes/yuki
+	url = https://github.com/iCyris/hugo-theme-yuki
