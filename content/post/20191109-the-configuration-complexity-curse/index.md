@@ -10,6 +10,7 @@ tags:
   - dhall
   - starlark
 ---
+*Read the discussion on [Hacker News](https://news.ycombinator.com/item?id=21551868), [Reddit](https://redd.it/dwt9gj), and [Lobste.rs](https://lobste.rs/s/qderac/configuration_complexity_curse_don_t_be)*
 
 > Don't be a YAML Engineer
 
