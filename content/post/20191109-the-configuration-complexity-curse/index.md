@@ -10,20 +10,21 @@ tags:
   - dhall
   - starlark
 ---
+*Read the discussion on [Hacker News](https://news.ycombinator.com/item?id=21551868), [Reddit](https://redd.it/dwt9gj), and [Lobste.rs](https://lobste.rs/s/qderac/configuration_complexity_curse_don_t_be)*
 
 > Don't be a YAML Engineer
 
-Spare a thought for a software engineer entering the industry nowadays. You thought you were ready after studying your theory and the weekend side projects. Now, you get hit with a wave of new tools and concepts out of nowhere. Microservices? REST? Cloud Computing? RPC (What's an IDL)? Docker (What's a container)? Kubernetes? Continuous Integration? Continuous Deployment? Even for veterans, like a frog in slowly boiling water, you look up one day and realize things have become **complicated**.
+Imagine that you are new software engineer entering the industry. You thought you were ready after studying your theory and the weekend side projects. Now, you get hit with a wave of new tools and concepts out of nowhere. Microservices? REST? Cloud Computing? RPC (What's an IDL)? Docker (What's a container)? Kubernetes? Continuous Integration? Continuous Deployment? Even for veterans, like a frog in slowly boiling water, you look up one day and realize things have become **complicated**.
 
 How did this happen? Each of these things looks useful in isolation, but now you have to figure out how to use it best for yourself as well as with these other tools in concert. First a tool must be configured, usually in YAML (so much YAML). Now this tool needs to be integrated to work with everything else. If you are lucky, you may have an internal platform team to package and abstract the complexity for you. Otherwise, you are going end up with a rube goldbergian system that wraps all these tools so you can coordinate configuration between everything just to maintain sanity.
 
-I think there is light at the tunnel here, but Kubernetes itself is a prime example of this industry wide pathology we experience building software platforms.
+I think there is light at the tunnel here, but even leading edge projects like Kubernetes suffer from this industry wide pathology we experience building software platforms.
 
 ## Kubernetes: It's Turtles All The Way Down
 
 You start by hand writing YAML files and pushing them to a cluster with `kubectl`. Before resting on your laurels as a newly minted distributed systems engineer, you realize that you need a way to pass dynamic values to your YAML file. Enter the tool explosion; Nod along if you have ever done or considered using one of these techniques:
 
-**Text Templating:** Many are tempted to reach for text templating libraries like Jinja, etc. Most have experience using for templating HTML, why not use it here? At this point you can get by with just simple scripts to template values then push to the cluster, or just go with something [off the shelf](https://github.com/deepmind/kapitan). Trying to write a configuration file (basically a data structure described in text) with a text templating library is the road to tragedy. As anyone who tried to write [helm chart template](https://helm.sh/docs/chart_template_guide/#the-chart-template-developer-s-guide) knows, templates quickly become hairy and incredibly fragile. Because you are working with the template at the textual level, a template writer lacks the tools to build abstractions around the data itself and small things like indentation can break your template. I think I need to repeat this: **Do not use text templating for data configuration.**
+**Text Templating:** Many are tempted to reach for text templating libraries like Jinja, etc. Most have experience using for templating HTML, why not use it here? At this point you can get by with just simple scripts to template values then push to the cluster, or just go with something [off the shelf](https://github.com/deepmind/kapitan). Trying to write a configuration file (basically a data structure described in text) with a text templating library is the road to tragedy. As anyone who tried to write a [helm chart template](https://helm.sh/docs/chart_template_guide/#the-chart-template-developer-s-guide) knows, templates quickly become hairy and incredibly fragile. Because you are working with the template at the textual level, a template writer lacks the tools to build abstractions around the data itself and small things like indentation can break your template. I think I need to repeat this: **Do not use text templating for data configuration.**
 
 **Data Layering:** This is when you build an overlay inheritance mechanism on top of YAML, keeping the raw YAML but wrapping it in a tool that can merge these separate documents according to its own rules. [`kustomize`](https://github.com/kubernetes-sigs/kustomize) would be the most well known tool now it that is it integrated into `kubectl`. This seems to work well enough and could be feasible for simple use cases. In comparison to data configuration languages though, this strategy breaks down when configurations grow in complexity and scale. Template writers lack abstraction and type validation that matters when things get complicated, as the semantics are locked into an opaque tool and not exposed as language features.
 
@@ -33,13 +34,13 @@ So, if you want to anything more advanced than straight YAML you will need to ad
 
 ## Complex Systems == Complex Configuration
 
-We went through an example with Kubernetes about how difficult it is to manage configuration, but Kubernetes is just one of many declarative systems that show this problem. Any declarative systems and tools that grow sufficiently in size and complexity need to be abstracted but we lack common tools to do so. You may not think a Terraform configuration needs to be abstracted, but when dealing with many teams that need to deploy infrastructure in a consistent way having reusable abstractions is incredibly valuable. Same for Continuous Integration. Maintaining a YAML file may be fine for a single project, but when your organization has hundreds of services generating a consistent set of automation and checks for every project is worth the effort.
+This example with Kubernetes shows how difficult it is to manage configuration, but Kubernetes is just one of many declarative systems that show this problem. Any declarative systems and tools that grow sufficiently in size and complexity need to be abstracted but we lack common tools to do so. You may not think a Terraform configuration needs to be abstracted, but when dealing with many teams that need to deploy infrastructure in a consistent way having reusable abstractions is incredibly valuable. Same for Continuous Integration. Maintaining a YAML file may be fine for a single project, but when your organization has hundreds of services, generating a consistent set of automation and checks is worth the effort.
 
-This issue hits upon the main argument of this essay:
+The main argument of this essay hits upon the cause of this issue:
 
-> **As scale forces us to build and use multiple complex systems, our configuration also grows in size and complexity. Our industry builds systems and integrations without investing in tooling to manage the growing configuration complexity.**
+> **As systems grow and multiply in order to run at scale, the configuration also grows in size and complexity. The industry lacks the right tools to manage this growing configuration complexity.**
 
-Innovation in platforms like the cloud and Kubernetes makes things that used to be difficult and complex for a small team to do an API call away. But the loop needs to be closed on how we can build libraries that any organization can use to have a base of best practices for any platform. Even current DCLs, which I consider closer to the model we should use, lack key pieces to manage configuration at scale.
+Innovation in platforms, like the cloud and Kubernetes, makes things that used to be too difficult and complex for a small team now just a simple API call away. But the loop needs to be closed on how we can build libraries that any organization can use to have a base of best practices for any platform. Even current DCLs, which I consider closer to the model we should use, lack key pieces to manage configuration at scale.
 
 ## CUE: Configure, Unify, Execute
 
@@ -48,7 +49,7 @@ We need a way to manage configuration that grows in size and needs to used in ma
 1. The tool is a language that has the primitives needed to create and maintain reusable, large scale configuration.
 2. The tool can orchestrate and push configuration to many different systems without having to create a new, custom tool just for that combination.
 
-There are many languages and configuration languages that we can and do use that attempt to solve this problem. [`CUE`](https://cuelang.org/docs/about/) is a (new) data configuration language that uses a novel approach to solving the issue with a vision to tackle both what is needed to do configuration at large scale with a way to finally avoid the all too common tool wrapping that we see today. The creator of `cuelang` ([this guy](https://twitter.com/mpvl_)) worked on `borgcfg` at Google, where the learnings of managing configuration across a large company drives much of what makes `cuelang` a solution for our configuration problems today.
+There are many languages and configuration languages that attempt to solve this problem. [`CUE`](https://cuelang.org/docs/about/) is a (new) data configuration language that uses a novel approach to solving the issue with a vision to tackle both what is needed to do configuration at large scale with a way to finally avoid the all too common tool wrapping that we see today. The creator of `cuelang` ([this guy](https://twitter.com/mpvl_)) worked on `borgcfg` at Google, where the learnings of managing configuration across a large company drives much of what makes `cuelang` a solution for our configuration problems today.
 
 ## Why CUE?
 
@@ -69,21 +70,23 @@ municipality: {
 }
 
 // Schema & Data
-largeCapital: municipality & {
+largeCapital: municipality
+largeCapital: {
 	name:    string
 	pop:     >5M
 	capital: true
 }
 
 // Data
-moscow: largeCapital & {
+moscow: largeCapital
+moscow: {
 	name:    "Moscow"
 	pop:     11.92M
 	capital: true
 }
 ```
 
-We can see three separate structs defined here with varying mixtures of types and values defined for each and the `&` operator to force unification between them. The combination of types and values in a single struct is significant here. In CUE, **types are values**. This means that types can be assigned to fields and can be immediately used to constrain values in the configuration. You can also see that fields become more constrained towards concrete values with each struct. `largeCapital` is `municipiality` with a new constraint on the population size. `moscow` is a `largeCity` with a concrete values (the most specific type) for all fields. Between structs `largeCity` and `moscow`, `largecity` _subsumes_ `moscow` and `moscow` is an _instance of_ `largeCity`.
+We can see three separate structs defined here with varying mixtures of types and values defined for each. The combination of types and values in a single struct is significant here. In CUE, **types are values**. This means that types can be assigned to fields and can be immediately used to constrain values in the configuration. You can also see that fields become more constrained towards concrete values with each struct. `largeCapital` is `municipiality` with a new constraint on the population size. `moscow` is a `largeCity` with a concrete values (the most specific type) for all fields. Between structs `largeCity` and `moscow`, `largecity` _subsumes_ `moscow` and `moscow` is an _instance of_ `largeCity`.
 
 If you want to go deeper I recommend reading [The Logic of CUE](https://cuelang.org/docs/concepts/logic/) to understand the theoretical foundation and what makes CUE different from other configuration languages. You can also watch [this video](https://youtu.be/b3fhA12KS48) from the creator if you prefer that. I think trying to go deeper into the theory would be me poorly rewording the original article. I would rather go into how the foundation of CUE enables features that are useful for configuration.
 
@@ -202,3 +205,5 @@ If any of these people apply to you:
 - Tired of writing so much YAML
 
 you should look into CUE.
+
+*Edit 2019-12-08: Improve tone consistency; Rewrite CUE code to be idiomatic*
