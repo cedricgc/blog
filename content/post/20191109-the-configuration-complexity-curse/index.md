@@ -69,21 +69,23 @@ municipality: {
 }
 
 // Schema & Data
-largeCapital: municipality & {
+largeCapital: municipality
+largeCapital: {
 	name:    string
 	pop:     >5M
 	capital: true
 }
 
 // Data
-moscow: largeCapital & {
+moscow: largeCapital
+moscow: {
 	name:    "Moscow"
 	pop:     11.92M
 	capital: true
 }
 ```
 
-We can see three separate structs defined here with varying mixtures of types and values defined for each and the `&` operator to force unification between them. The combination of types and values in a single struct is significant here. In CUE, **types are values**. This means that types can be assigned to fields and can be immediately used to constrain values in the configuration. You can also see that fields become more constrained towards concrete values with each struct. `largeCapital` is `municipiality` with a new constraint on the population size. `moscow` is a `largeCity` with a concrete values (the most specific type) for all fields. Between structs `largeCity` and `moscow`, `largecity` _subsumes_ `moscow` and `moscow` is an _instance of_ `largeCity`.
+We can see three separate structs defined here with varying mixtures of types and values defined for each. The combination of types and values in a single struct is significant here. In CUE, **types are values**. This means that types can be assigned to fields and can be immediately used to constrain values in the configuration. You can also see that fields become more constrained towards concrete values with each struct. `largeCapital` is `municipiality` with a new constraint on the population size. `moscow` is a `largeCity` with a concrete values (the most specific type) for all fields. Between structs `largeCity` and `moscow`, `largecity` _subsumes_ `moscow` and `moscow` is an _instance of_ `largeCity`.
 
 If you want to go deeper I recommend reading [The Logic of CUE](https://cuelang.org/docs/concepts/logic/) to understand the theoretical foundation and what makes CUE different from other configuration languages. You can also watch [this video](https://youtu.be/b3fhA12KS48) from the creator if you prefer that. I think trying to go deeper into the theory would be me poorly rewording the original article. I would rather go into how the foundation of CUE enables features that are useful for configuration.
 
