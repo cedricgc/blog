@@ -13,6 +13,7 @@ theme = "yuki"
   # The information will display on the post pages.
   author = "Cedric Charly"
   authorwebsite = "https://blog.cedriccharly.com/"
+  description = "You can reach me on Twitter (@cedricgc) if you want to discuss an article."
 
   # The path to your images
   favicon = "images/logo.png"
@@ -49,14 +50,19 @@ theme = "yuki"
 
 # Social accounts config (This will display on the index page)
 [[menu.social]]
+    name = "Twitter"
+    url = "https://twitter.com/cedricgc"
+    weight = 1
+
+[[menu.social]]
     name = "LinkedIn"
     url = "https://www.linkedin.com/in/cedric-charly-8143a15a/"
-    weight = 1
+    weight = 2
 
 [[menu.social]]
     name = "GitHub"
     url = "https://github.com/cedricgc"
-    weight = 2
+    weight = 3
 
 # [[menu.social]]
 #     name = "Example-3"
