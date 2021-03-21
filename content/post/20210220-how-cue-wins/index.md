@@ -21,4 +21,9 @@ To be fair, building a language is no simple task. Building a ubiquitous languag
 
 Programming languages benefit from network effects in multiple dimensions. The more users of the language, the more and better libraries, documentations, tutorials, etc. are available which attracts even more users. Once an organization has their core needs met (things like the development toolchain and core libraries) they are fairly independent. They can go off and do their own thing without caring what others do as long as they can build the desired software.
 
-In contrast, configuration is not valued by itself. Configuration is closer to a contract or standard between users and software where the goal is to feed structured data to a program that does the useful work.
+In contrast, configuration is not valued by itself. Configuration is closer to a contract or standard between users and software where the goal is to feed structured data to a program that does the useful work. Why does that matter? For a configuration language, success looks like making a market between users and tool developers. Each side wants access to the other as the reason to use a configuration language like CUE:
+
+- Users want to be able to use CUE (with its powerful features and tooling) across multiple workflows
+- Tool makers want their users using CUE if they are making the effort to support a configuration language
+
+For example, a developer wants to configure their whole automation pipeline, involving Github Actions (CI), Terraform (infrastructure), Kubernetes (compute orchestration) and other tools.
