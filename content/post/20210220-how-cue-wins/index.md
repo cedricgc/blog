@@ -26,8 +26,4 @@ In contrast, configuration is not valued by itself. Configuration is closer to a
 - Users want to be able to use CUE (with its powerful features and tooling) across multiple workflows
 - Tool makers want high demand for CUE to justify supporting a configuration language
 
-Right now, configuration lacks benefits taken for granted in programming languages, like libraries to handle common usecases, Continuous Integration and testing, and debuggin. 
 
-For example, a developer who wants to configure their whole automation pipeline, spanning Github Actions (Continuous Integration), Terraform (Infrastructure Managment), Kubernetes (Compute Orchestration) and other tools would have a tough. YAML/JSON is the de facto language between them all, but the only real commonality is the syntax.
-
-Chicken and egg
