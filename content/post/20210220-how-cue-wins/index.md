@@ -26,4 +26,8 @@ In contrast, configuration is not valued by itself. Configuration is closer to a
 - Users want to be able to use CUE (with its powerful features and tooling) across multiple workflows
 - Tool makers want high demand for CUE to justify supporting a configuration language
 
+The challenge is that we are stuck in a local maxima. Almost every tool uses configuration but it is not the differentiator, so most developers settle on using a language that is widely known and supported, like YAML. Writ large, it is the undifferentiated heavy lifting that underlies modern software development.
 
+CUE will need to create a two sided market, which is harder than a network effect because each side has its own economies of scale and then matching those groups is a classic chicken-and-egg problem. A tall order. In return for overcoming this challenge, this barrier to entry becomes a powerful moat that would make CUE truly dominant for configuration. This is where configuration languages differ from programming languages. Even with network effects, there is plenty of specialization (such as garbage collected vs manual memory management) and independence for the industry to support multiple popular languages. There is less opportunity in configuration, where developers would not want to support multiple complex formats for a single tool or to learn multiple advanced configuration languages for largely the same kind of work.
+
+The winning language will enjoy a power law where that language is the ubiquitous, default choice for configuration integration, libraries, and workflows. Other languages can exist, but would be relatively niche and limited without the same widespread support.
