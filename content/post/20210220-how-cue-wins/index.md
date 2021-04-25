@@ -43,3 +43,7 @@ CUE does have advantages managing all these integrations. As discussed earlier, 
 ## Capturing The Cloud
 
 Although CUE has potential for all configuration use cases, initial focus should be on areas like cloud computing that have high potential for growing the userbase. Why cloud specifically? Cloud computing is still relatively new and is still growing massively, and declarative cloud configuration is even more recent. This presents an unique opportunity as an area with complex configuration needs that is in widespread demand. There are disciplines that use advanced configuration regularly, but something like computational linguistics is niche, while everyone needs to manage servers and databases.
+
+Even with many projects tackling infrastructure management, there is space for CUE to be the default language of choice. The main reason is that configuration languages fit much better in the new paradigm of *Infrastructure as Data* (IaD). Kelsey Hightower contrasts IaD with Infrastructure as Code (IaC) [here](https://twitter.com/kelseyhightower/status/1164194470436302848) and [here](https://twitter.com/kelseyhightower/status/1338927903908630528). The driving point is that data is simpler to analyze, manipulate, serialize, and transport than code is. The goal then is finding the most effective way to model and manage data structures.
+
+The answer of course is a configuration language, but it is not the better choice just because it is not Turing complete.
