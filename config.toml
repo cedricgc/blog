@@ -34,7 +34,7 @@ theme = "yuki"
     weight = 1
 
 [[menu.nav]]
-    name = "BLOG"
+    name = "POSTS"
     url = "/post"
     weight = 2
 
