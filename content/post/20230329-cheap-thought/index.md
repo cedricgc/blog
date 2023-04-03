@@ -2,6 +2,9 @@
 title: "Cheap Thought"
 date: 2023-03-29T22:25:41-05:00
 draft: true
+tags:
+  - Artificial Intelligence
+  - Business
 ---
 
 Software engineering, the realm of bits, has long been organized around the idea that developing software is an expensive endeavor. Not only are software engineers costly, but code itself carries a certain _weight_. Once code is written, it must be maintained and extended. Bugs and migrations are costly mistakes, prompting us to adopt practices such as continuous integration (CI), test-driven development (TDD), and code reviews. These practices aim to identify issues as early as possible and shift development leftward.
@@ -19,3 +22,19 @@ While AI-assisted programming intuitively shortens development cycles in general
 In a previous [thread](https://twitter.com/cedricgc/status/1466206986769371136), I discussed why managed SaaS offerings are highly effective for development tools - while code can be open-sourced, effective operations of distributed systems cannot. Many customers are more than happy to pay for seamless solutions that they can plug into their stack. Likewise, achieving maintainable integration with the myriad of tools available is often difficult in-house and can be outsourced to a properly incentivized service.
 
 AI-assisted programming chips away at both pillars. With AI-driven tools streamlining system setup, maintenance, and troubleshooting, the lower barrier to entry invites competition from new entrants in the market. Going further, this technology empowers organizations to develop custom solutions in-house, enabling teams to manage the integration workload while maintaining control over the product roadmap and priorities.
+
+## Hyperpersonalization
+
+An intuitive conclusion of projecting AI development into the future is that the marginal cost of writing software trends towards zero. But, it is worth examining the specific risks posed to the SaaS business model: the reduced barrier to entry not only fuels competition but also weakens the core moats that render pure software businesses defensible.
+
+Where does value accrue in a disrupted world? I think it plays out like this:
+
+Focus shifts to data storage and representation...
+Enabling the creation hyper-personalized user experiences...
+Ultimately to attract and retain valuable user attention
+
+Data is valuable, aptly referred to as "digital gold" by many. However, the affordability of AI-powered processing implies that any data sent to another machine will likely be scraped and repurposed. Consequently, data will be even more precious, requiring security measures to mitigate risks while the pressure to collect personal information will decline in hand with the reliance on centralized software services.
+
+While personal data is quite valuable, abundant code is not. As mentioned earlier, a mere fraction of software contributes to a company's unique value proposition, with the majority of code relegated to the indistinct realm of "infrastructure." While infrastructure supports innovative applications, intense competition is likely to promote widespread standardization in pursuit of fast execution. If the code does not advance a company's core mission, it makes sense to entrust AI with its management in the most cost-effective and maintainable manner.
+
+Where does our focus go? We write software to enable users. We design systems that can be used by many people at once, as creating custom software for each person would be impractical. But with AI, we can imagine a world where UIs are generated on demand based on the specification of the data and learned preferences of the user. When retaining each marginal user vs the competition is critical, companies will be willing to build the systems and expertise needed to deeply understand each user and create experiences they cannot find anywhere else.
