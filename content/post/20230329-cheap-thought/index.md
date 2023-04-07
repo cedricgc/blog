@@ -1,7 +1,6 @@
 ---
 title: "Cheap Thought"
 date: 2023-03-29T22:25:41-05:00
-draft: true
 tags:
   - Artificial Intelligence
   - Business
@@ -38,3 +37,11 @@ Data is valuable, aptly referred to as "digital gold" by many. However, the affo
 While personal data is quite valuable, abundant code is not. As mentioned earlier, a mere fraction of software contributes to a company's unique value proposition, with the majority of code relegated to the indistinct realm of "infrastructure." While infrastructure supports innovative applications, intense competition is likely to promote widespread standardization in pursuit of fast execution. If the code does not advance a company's core mission, it makes sense to entrust AI with its management in the most cost-effective and maintainable manner.
 
 Where does our focus go? We write software to enable users. We design systems that can be used by many people at once, as creating custom software for each person would be impractical. But with AI, we can imagine a world where UIs are generated on demand based on the specification of the data and learned preferences of the user. When retaining each marginal user vs the competition is critical, companies will be willing to build the systems and expertise needed to deeply understand each user and create experiences they cannot find anywhere else.
+
+## Conclusion
+
+The key message of this essay is that AI-enabled coding fundamentally alters the dynamics of software economics. In its place, companies compete to create novel experiences deeply tailored to each user.
+
+Although navigating the change will be challenging, I think we have an exciting future where software is designed to be an extension of will. We make tradeoffs and accept drudgery because it would be infeasible to automate, integrate, and customize our work to the level where the human in the loop is truly doing the most meaningful work. AI holds the potential to create a future where we can have our cake and eat it too.
+
+There is more to say on how we develop software with AI-enabled programming. An upcoming post, Hyperstandardization, will explore how to think about infrastructure vs application code, the mechanics of hyper-standardized development, and why we will see many more protocols.
