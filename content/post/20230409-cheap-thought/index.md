@@ -1,6 +1,6 @@
 ---
 title: "Cheap Thought"
-date: 2023-03-29T22:25:41-05:00
+date: 2023-04-07T22:25:41-05:00
 tags:
   - Artificial Intelligence
   - Business
