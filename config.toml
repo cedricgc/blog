@@ -2,7 +2,7 @@ baseURL = "https://blog.cedriccharly.com/"
 languageCode = "en-us"
 title = "Cedric Charly's Blog"
 
-theme = "yuki"
+theme = "charly"
 
 # Theme config
 [params]
