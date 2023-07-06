@@ -1,17 +1,17 @@
 <div>
+  <div>
     <div>
-        <div>
-            <div></div>
-        </div>
-        {{ $currentPage := . }}
-        <div>
-            <a href="{{ .Site.BaseURL }}">
-                {{- with .Site.Params.logo -}}
-                <!-- <img src="{{ . | absURL }}" /> -->
-                {{- end -}}
-            </a>
-        </div>
+      <div></div>
     </div>
-    {{ partial "navbar.html" . }}
+    {{ $currentPage := . }}
+    <div>
+      <a href="{{ .Site.BaseURL }}">
+        {{- with .Site.Params.logo -}}
+        <!-- <img src="{{ . | absURL }}" /> -->
+        {{- end -}}
+      </a>
+    </div>
+  </div>
+  {{ partial "navbar.html" . }}
 </div>
-<div class="main">
+<div class="main"></div>

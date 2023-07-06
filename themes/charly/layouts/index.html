@@ -1,31 +1,31 @@
 {{ define "main" }}
 <!-- Social accounts -->
 <div>
-    {{- with .Site.Params.snsTitle -}}
-    <span>{{ . }}</span>
-    {{- end -}}
+  {{- with .Site.Params.snsTitle -}}
+  <span>{{ . }}</span>
+  {{- end -}}
 </div>
 <div>
-    {{ range .Site.Menus.social }}
-    <a target="_blank" href="{{ .URL }}">{{ .Name }}</a>
-    {{ end }}
+  {{ range .Site.Menus.social }}
+  <a target="_blank" href="{{ .URL }}">{{ .Name }}</a>
+  {{ end }}
 </div>
 
 <!-- Content list -->
 <div>
-    <span>Writing</span>
+  <span>Writing</span>
 </div>
 <div>
-    {{ $posts := where site.RegularPages "Type" "in" site.Params.mainSections }}
-    {{ range (.Paginate $posts).Pages }}
+  {{ $posts := where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{ range (.Paginate $posts).Pages }}
+  <div>
     <div>
-        <div><a href="{{.Permalink}}">{{ .Date.Format "2006.01.02 15:04" }}</a></div>
-        <div><a href="{{.Permalink}}">{{.Title}}</a></div>
+      <a href="{{.Permalink}}">{{ .Date.Format "2006.01.02 15:04" }}</a>
     </div>
-    {{ end }}
+    <div><a href="{{.Permalink}}">{{.Title}}</a></div>
+  </div>
+  {{ end }}
 
-    <div>
-        {{ partial "pagination.html" . }}
-    </div>
+  <div>{{ partial "pagination.html" . }}</div>
 </div>
 {{ end }}
