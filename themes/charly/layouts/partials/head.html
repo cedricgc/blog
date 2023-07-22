@@ -1,5 +1,61 @@
 <head>
-  <meta charset="utf-8" />
+  <!-- Drop In Tailwind CSS experiment -->
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+  <!-- Specifies the character encoding for the document (UTF-8 is commonly used for supporting various characters and languages) -->
+  <meta charset="UTF-8" />
+
+  <!-- Defines the viewport properties for responsive design; sets the width to the device width and initial scale to 1.0 (no zooming) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Provides a brief description of the web page for search engines and social media previews -->
+  <meta name="description" content="Cedric Charly's Blog" />
+
+  <!-- Specifies keywords relevant to the page's content, aiding search engine optimization (SEO) -->
+  <meta name="keywords" content="personal blog, technology" />
+
+  <!-- Declares the author of the web page -->
+  <meta name="author" content="Cedric Charly" />
+
+  <!-- Page Title -->
+  <!-- Sets the title displayed in the browser tab or window -->
   <title>{{ block "title" . }} {{ .Site.Title }} {{ end }}</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Favicon (Place your favicon.ico file in the root directory of your website) -->
+  <!-- Specifies the URL of the favicon, which is a small icon displayed in the browser tab -->
+  {{- with .Site.Params.favicon }}
+  <link rel="icon" type="image/x-icon" href="{{ . | absURL }}" />
+  <link rel="apple-touch-icon" href="{{ . | absURL }}" />
+  {{- end -}}
+
+  <!-- CSS Stylesheets (Replace 'styles.css' with your main CSS file) -->
+  <!-- Links to the main CSS file for styling the web page -->
+  <!-- <link rel="stylesheet" href="styles.css" /> -->
+
+  <!-- Optional: Add any additional CSS libraries or stylesheets -->
+  <!-- Example of linking an external CSS library (Google Fonts) to use the 'Roboto' font family -->
+  <!-- <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+  /> -->
+
+  <!-- Optional: Add CSS for highlighting code snippets (e.g., using Prism.js or highlight.js) -->
+  <!-- You can add custom CSS for code highlighting if needed -->
+  <link rel="stylesheet" href="{{ "css/monokai-sublime.min.css" | absURL }}">
+  <script src="{{ "js/highlight.min.js" | absURL }}"></script>
+  <link rel="stylesheet" href="{{ "css/highlight.css" | absURL }}">
+
+  <!-- Optional: Add your own custom CSS or additional stylesheets -->
+  <!-- You can include additional CSS files or your custom styles here -->
+
+  <!-- JavaScript Files (Place your main script or other JavaScript files here) -->
+  <!-- Links to your main JavaScript file; the 'defer' attribute makes sure the script is executed after the document is parsed -->
+  <!-- <script src="path/to/main-script.js" defer></script> -->
+
+  <!-- Optional: Add any additional JavaScript libraries or plugins -->
+  <!-- Example of linking an external JavaScript library (Moment.js) -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" defer></script> -->
+
+  <!-- Optional: Add any additional metadata or external resources -->
+  <!-- You can add more meta tags or links to external resources as needed -->
 </head>
