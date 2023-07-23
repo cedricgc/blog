@@ -1,0 +1,64 @@
+{{ partial "header.html" . }}
+
+<div>
+    <div>
+        <h4>{{ .Date.Format "2006.01.02 15:04" }}</h4>
+    </div>
+    <div>
+        <h1>{{ .Title }}</h1>
+    </div>
+    <div>
+        <article>
+            {{ .Content }}
+        </article>
+    </div>
+    <div>
+        {{ with .Params.tags }}
+        {{ range . }}
+        <span><a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a></span>
+        {{ end }}
+        {{ end }}
+    </div>
+</div>
+<div>
+    <div>
+        {{ with .Site.Params.avatar }}
+            <img src="{{ . }}">
+        {{ end }}
+    </div>
+    <div>
+        <div>
+            {{ with .Site.Params.author }}
+            <span> {{ . }} </span>
+            {{ end }}
+        </div>
+        <div>
+            {{ with .Site.Params.description }}
+            <p> {{ . }} </p>
+            {{ end }}
+        </div>
+    </div>
+</div>
+<div></div>
+<div>
+    {{ with .PrevInSection }}
+    <a href="{{.Permalink}}">
+        <div></div>
+        <div>
+            <div> {{ .Date.Format "2006.01.02 15:04" }} </div>
+            <div> {{.Title}} </div>
+        </div>
+    </a>
+    {{ end }}
+    {{ with .NextInSection }}
+    <a href="{{.Permalink}}">
+        <div></div>
+        <div>
+            <div> {{ .Date.Format "2006.01.02 15:04" }} </div>
+            <div> {{.Title}} </div>
+        </div>
+    </a>
+    {{ end }}
+</div>
+
+{{ partial "footer.html" . }}
