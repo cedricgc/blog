@@ -1,0 +1,14 @@
+<footer>
+  <div class="footer">
+    <div class="copyright-wrap">
+      <p class="copyright u-font">
+        {{ with .Site.Copyright | safeHTML }} {{- . -}} {{ else }} &#169; {{
+        .Site.LastChange.Format "2006" }} {{ if .Site.Params.author }}
+        <a href="{{ .Site.Params.authorwebsite }}" target="_blank">{{ .Site.Params.author }}&#46;</a>
+        Powered by Hugo&#46; {{ end }} {{ end }}
+      </p>
+    </div>
+  </div>
+  <script src="{{ "js/page.js" | absURL }}"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</footer>
