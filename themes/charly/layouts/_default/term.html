@@ -1,0 +1,28 @@
+{{ partial "header.html" . }}
+<div class="tpl" id="term"></div>
+
+<div>
+  {{ $baseurl := .Site.BaseURL | sanitizeurl }}
+  <div>
+    <h1>{{ .Title }}</h1>
+  </div>
+
+  <article>
+    <div>
+      {{ $currentPage := . }}
+      <!-- prettier-ignore -->
+      {{ range .Pages }}
+      <div>
+        <div>
+          <a href="{{.Permalink}}">{{ .Date.Format "2006.01.02 15:04" }}</a>
+        </div>
+        <div><a href="{{.Permalink}}">{{ .Title }}</a></div>
+      </div>
+      {{ end }}
+
+      <div>{{ partial "pagination.html" . }}</div>
+    </div>
+  </article>
+</div>
+
+{{ partial "footer.html" . }}

@@ -1,5 +1,5 @@
 {{ partial "header.html" . }}
-<div class="tpl" id="list"></div>
+<div class="tpl" id="taxonomy"></div>
 
 <div>
   {{ $baseurl := .Site.BaseURL | sanitizeurl }}
@@ -9,18 +9,6 @@
 
   <article>
     <div>
-      {{ $currentPage := . }}
-      <!-- prettier-ignore -->
-      {{ if eq $currentPage.Permalink "/post/" }}
-      {{range .Pages }}
-      <div>
-        <div><a href="{{.URL}}">{{ .Date.Format "2006.01.02 15:04" }}</a></div>
-        <div><a href="{{.URL}}">{{ .Title }}</a></div>
-      </div>
-      {{ end }}
-
-      <div>{{ partial "pagination.html" . }}</div>
-      {{ end }}
       <!-- prettier-ignore -->
       {{ $data := .Data }}
       {{ range $key, $value := .Data.Terms }}
