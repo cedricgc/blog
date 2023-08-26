@@ -5,11 +5,10 @@
         <div></div>
       </div>
       {{ $currentPage := . }}
-      <div>
+      <div class="flex items-center justify-center">
         <a href="{{ .Site.BaseURL }}">
           {{- with .Site.Params.logo -}}
-          <img src="{{ . | absURL }}" />
-          {{- end -}}
+          <img src="{{ . | absURL }}" class="w-20 h-auto" /> {{- end -}}
         </a>
       </div>
     </div>

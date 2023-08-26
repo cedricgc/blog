@@ -1,8 +1,8 @@
 <nav>
-  <div>
+  <div class="flex items-center justify-center">
     {{ range .Site.Menus.nav }}
-    <div>
-      <a href="{{ .URL }}">{{ .Name }}</a>
+    <div class="py-20">
+      <a href="{{ .URL }}" class="px-4 py-4">{{ .Name }}</a>
     </div>
     {{ end }}
   </div>
