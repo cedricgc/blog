@@ -11,3 +11,13 @@ hugo.linux
 
 # Temporary lock file while building
 /.hugo_build.lock
+
+# Gatsby ignore
+v2/node_modules/
+v2/.cache/
+v2/public/
+v2/.env*
+v2/.netlify/
+v2/*.log
+v2/.DS_Store
+
