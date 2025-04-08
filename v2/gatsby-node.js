@@ -1,11 +1,13 @@
 /**
  * @type {import('gatsby').GatsbyNode}
  */
+const path = require('path');
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
   // Define a template for blog post
-  const blogPostTemplate = require.resolve(`./src/templates/blog-post.js`);
+  const blogPostTemplate = path.resolve(__dirname, './src/templates/blog-post.js');
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(`
@@ -49,9 +51,16 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = `/blog/${node.parent.name === 'index' 
-      ? node.parent.relativeDirectory.split('/').pop()
-      : node.parent.name}`;
+    // Get the parent file node
+    const parent = getNode(node.parent);
+    
+    // Get the directory name
+    const dirName = parent.relativeDirectory.split('/').pop();
+    
+    // Create the slug - note that 'blog' is already part of the path in Gatsby config
+    const value = `/${dirName}`;
+    
+    console.log(`Creating slug for ${parent.name} in ${parent.relativeDirectory}: ${value}`);
     
     createNodeField({
       name: `slug`,

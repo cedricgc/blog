@@ -17,7 +17,7 @@ const IndexPage = ({ data }) => {
             <li key={post.fields?.slug}>
               <article>
                 <h3>
-                  <Link to={post.fields?.slug}>
+                  <Link to={post.fields?.slug || "/"}>
                     {post.frontmatter.title}
                   </Link>
                 </h3>
