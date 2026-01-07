@@ -61,7 +61,7 @@ In the Kubernetes example before, I left out the option of using a a general pur
 
 This idea is much more intuitive to see with an example. Let's look at an example CUE definition:
 
-```
+```cue
 // Schema
 municipality: {
 	name:    string
@@ -94,7 +94,7 @@ If you want to go deeper I recommend reading [The Logic of CUE](https://cuelang.
 
 Going back to what we need from a new configuration tool, types and abstractions are the largest factors in managing large scale configuration. With types, we express constraints on data and declare intent across potentially many users. Types protect users from errors when defining configuration and serves as automatic documentation. Taking an example from the website:
 
-```
+```cue
 Spec :: {
 	kind: string
 
@@ -141,7 +141,7 @@ Today, we have incredible tool churn because we cannot easily use the same confi
 
 It's hard to visualize what this means without an example. The scripting layer is still being worked on, but here is an example from running `cue help cmd`:
 
-```
+```cue
 package foo
 
 import "tool/exec"
