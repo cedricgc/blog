@@ -1,0 +1,23 @@
+{{ $image := .Page.Resources.GetMatch (.Get "src") }}
+{{ if $image }}
+  {{ $small := $image.Resize "480x webp" }}
+  {{ $medium := $image.Resize "768x webp" }}
+  {{ $large := $image.Resize "1200x webp" }}
+
+  <figure>
+    <img
+      srcset="{{ $small.RelPermalink }} 480w,
+              {{ $medium.RelPermalink }} 768w,
+              {{ $large.RelPermalink }} 1200w"
+      sizes="(max-width: 480px) 480px,
+             (max-width: 768px) 768px,
+             1200px"
+      src="{{ $medium.RelPermalink }}"
+      alt="{{ .Get "alt" }}"
+      loading="lazy"
+    />
+    {{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
+  </figure>
+{{ else }}
+  <img src="{{ .Get "src" }}" alt="{{ .Get "alt" }}" loading="lazy" />
+{{ end }}
