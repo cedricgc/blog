@@ -4,6 +4,7 @@
 
 [tools]
 hugo = "0.146.0"  # Must match HUGO_VERSION in netlify.toml
+node = "22"       # Must match NODE_VERSION in netlify.toml
 
 [tasks.dev]
 description = "Start development server with drafts enabled"
