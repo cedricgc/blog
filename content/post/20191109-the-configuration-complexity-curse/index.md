@@ -1,6 +1,8 @@
 ---
 title: The Configuration Complexity Curse
 date: '2019-11-09T22:23:50Z'
+description: "Why managing configuration has become so complex and how data configuration languages like CUE offer a path forward."
+summary: "As systems grow and multiply to run at scale, configuration grows in complexity. The industry lacks the right tools—until now. An introduction to CUE and why it matters."
 tags:
   - configuration
   - devops

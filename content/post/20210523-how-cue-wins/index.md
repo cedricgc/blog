@@ -1,6 +1,8 @@
 ---
 title: "How CUE Wins"
 date: 2021-05-23T00:27:14-08:00
+description: "Why CUE can become the ubiquitous configuration language by creating a two-sided market between users and tool developers."
+summary: "CUE wins by achieving ubiquity. As a configuration language, it must create a two-sided market—and cloud computing presents the perfect opportunity."
 tags:
   - configuration
   - CUE

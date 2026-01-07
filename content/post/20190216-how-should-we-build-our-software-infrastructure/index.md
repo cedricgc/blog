@@ -1,6 +1,8 @@
 ---
 title: Services, Not Scripts
 date: '2019-02-16T21:42:11Z'
+description: "Why teams should build Infrastructure as a Service APIs instead of ad-hoc scripts to manage databases and custom infrastructure."
+summary: "Advocating for Infrastructure as a Service over ad-hoc scripts. When cloud vendors don't provide critical services, building APIs creates reusable automation that benefits the entire organization."
 tags:
   - Cloud
   - SRE
@@ -25,10 +27,6 @@ as Google Cloud offerings? GCP provides the tools to do so, but we would need to
 fundamentally change how we deploy systems such as databases in GCP.
 
 ## The Infrastructure Lifecycle
-
-<!-- Dive into what it takes to fully operate a database -->
-<!-- Describe how this is done without an infrastructure service -->
-  <!-- Downsides of the current system -->
 
 When deploying a new system, many would consider being able to bring up a new
 instance or cluster on demand an accomplishment in itself. But, creating a
@@ -73,10 +71,6 @@ is insufficient, what is the solution?
 
 ## It's All APIs
 
-<!-- Multiple frontends -->
-<!-- Infrastructure lifecycle encapsulation -->
-<!-- Administrative task APIs -->
-
 > I don't care how you build it, just get me a cluster.
 
 When creating anything in Google Cloud, from resources as simple as a single VM
@@ -101,11 +95,6 @@ developers on your team rather use? What option would developers in other teams
 prefer?
 
 ## Infrastructure as a Service
-
-<!-- Deployment treated as a logical unit -->
-<!-- Full service ownership -->
-  <!-- Do the work for them -->
-  <!-- Alignment of knowledge and incentives -->
 
 > You're the expert, just do it for me.
 
@@ -139,10 +128,6 @@ developing a robust backup solution can make an innovation available to the
 organization by creating a new endpoint.
 
 ## The Loop
-
-<!-- Virtuous cycle between IaaS and SRE -->
-<!-- Virtuous cycle internal to IaaS teams -->
-  <!-- Scale forces improvement -->
 
 The end result of adopting IaaS for all infrastructure is a virtuous cycle. When
 you can simply call an API and get a fully working database cluster, why

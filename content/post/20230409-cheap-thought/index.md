@@ -1,6 +1,8 @@
 ---
 title: "Cheap Thought"
 date: 2023-04-07T22:25:41-05:00
+description: "How AI-enabled coding will disrupt SaaS businesses and shift value toward data, hyperpersonalization, and user attention."
+summary: "When AI makes writing code too cheap to meter, software economics fundamentally change. SaaS moats weaken as value shifts to data and hyperpersonalized experiences."
 tags:
   - Artificial Intelligence
   - Business
