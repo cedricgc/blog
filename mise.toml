@@ -1,0 +1,42 @@
+# mise.toml - Tool versions and tasks for blog development
+# Install mise: https://mise.jdx.dev/getting-started.html
+# Run `mise install` to install tools, `mise run <task>` to run tasks
+
+[tools]
+hugo = "0.146.0"  # Must match HUGO_VERSION in netlify.toml
+
+[tasks.dev]
+description = "Start development server with drafts enabled"
+run = "hugo serve --buildDrafts --bind 0.0.0.0 --port 1313 --watch --disableFastRender"
+
+[tasks.build]
+description = "Build site for production"
+run = "hugo --gc --minify"
+
+[tasks.clean]
+description = "Remove build artifacts"
+run = "rm -rf public/ resources/_gen/"
+
+[tasks.new]
+description = "Create new post (usage: mise run new -- \"My Post Title\")"
+run = '''
+#!/bin/bash
+if [ -z "$1" ]; then
+  echo "Usage: mise run new -- \"My Post Title\""
+  exit 1
+fi
+slug=$(echo "$1" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -cd '[:alnum:]-')
+hugo new "post/$(date +%Y%m%d)-${slug}/index.md"
+'''
+
+[tasks.preview]
+description = "Build and serve production version locally"
+run = "hugo --gc --minify && hugo serve --bind 0.0.0.0 --port 1313"
+
+[tasks.check]
+description = "Build and validate links (requires htmltest)"
+run = "hugo --gc --minify && htmltest"
+
+[tasks.theme-update]
+description = "Update PaperMod theme to latest"
+run = "git submodule update --remote --merge themes/PaperMod"
